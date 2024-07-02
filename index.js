@@ -1,6 +1,446 @@
 const main = document.querySelector('main')
 
-// Crear los elementos que se van a insertar después del main
+const menuButtons = [
+  {
+    tag: 'header',
+    children: [
+      {
+        tag: 'div',
+        className: 'promo-banner',
+        children: [
+          {
+            tag: 'p',
+            className: 'flex-container',
+            text: 'Únete a Vans Family para disfrutar de un 10% de descuento en tu primera compra y de envíos gratis a los puntos de entrega.'
+          }
+        ]
+      },
+      {
+        tag: 'nav',
+        id: 'nav-menu',
+        className: 'flex-container',
+        children: [
+          {
+            tag: 'ul',
+            className: 'flex-container',
+            children: [
+              {
+                tag: 'li',
+                children: [
+                  {
+                    tag: 'a',
+                    href: '',
+                    children: [
+                      {
+                        tag: 'img',
+                        src: './assets/bandera esp.png',
+                        alt: 'bandera española',
+                        title: 'bandera de España para seleccionar idioma'
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                tag: 'li',
+                children: [{ tag: 'a', href: '#', text: 'Favoritos' }]
+              },
+              {
+                tag: 'li',
+                children: [{ tag: 'a', href: '#', text: 'Seguir mi pedido' }]
+              },
+              { tag: 'li', children: [{ tag: 'a', href: '#', text: 'Ayuda' }] },
+              {
+                tag: 'li',
+                children: [{ tag: 'a', href: '#', text: 'Vans Family' }]
+              },
+              {
+                tag: 'li',
+                children: [{ tag: 'a', href: '#', text: 'Tarjeta regalo' }]
+              },
+              {
+                tag: 'li',
+                children: [
+                  { tag: 'a', href: '#', text: 'Encuentra una tienda' }
+                ]
+              },
+              {
+                tag: 'li',
+                children: [{ tag: 'a', href: '#', text: 'Iniciar sesión' }]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        tag: 'nav',
+        id: 'nav-products',
+        className: 'flex-container',
+        children: [
+          {
+            tag: 'div',
+            className: 'menu-category',
+            children: [
+              {
+                tag: 'ul',
+                className: 'flex-container',
+                children: [
+                  {
+                    tag: 'li',
+                    children: [
+                      {
+                        tag: 'a',
+                        href: '#',
+                        children: [
+                          {
+                            tag: 'img',
+                            src: './assets/vans-logo.png',
+                            alt: 'logo vans',
+                            title: 'logo vans de letras rectas en mayúsculas'
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    tag: 'li',
+                    children: [{ tag: 'a', href: '#', text: 'Mujer' }]
+                  },
+                  {
+                    tag: 'li',
+                    children: [{ tag: 'a', href: '#', text: 'Hombre' }]
+                  },
+                  {
+                    tag: 'li',
+                    children: [{ tag: 'a', href: '#', text: 'Niños' }]
+                  },
+                  {
+                    tag: 'li',
+                    children: [{ tag: 'a', href: '#', text: 'Novedades' }]
+                  },
+                  {
+                    tag: 'li',
+                    children: [{ tag: 'a', href: '#', text: 'Personalizar' }]
+                  },
+                  {
+                    tag: 'li',
+                    children: [{ tag: 'a', href: '#', text: 'Knu Skool' }]
+                  },
+                  {
+                    tag: 'li',
+                    children: [{ tag: 'a', href: '#', text: 'Action Sports' }]
+                  },
+                  { tag: 'li', children: [{ tag: 'button', text: 'Más' }] }
+                ]
+              }
+            ]
+          },
+          {
+            tag: 'div',
+            className: 'menu-search',
+            children: [
+              {
+                tag: 'ul',
+                className: 'flex-container',
+                children: [
+                  {
+                    tag: 'li',
+                    children: [
+                      {
+                        tag: 'div',
+                        className: 'search-container',
+                        children: [
+                          {
+                            tag: 'input',
+                            type: 'text',
+                            name: 'search',
+                            placeholder: 'Buscar'
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    tag: 'li',
+                    children: [
+                      {
+                        tag: 'a',
+                        href: '#',
+                        children: [
+                          {
+                            tag: 'img',
+                            src: './assets/shopping-cart.png',
+                            alt: 'carrito compra online',
+                            title: 'imagen vectorial de un carrito',
+                            className: 'cart'
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        tag: 'nav',
+        id: 'responsive',
+        className: 'flex-container',
+        children: [
+          {
+            tag: 'div',
+            className: 'vans-logo',
+            children: [
+              {
+                tag: 'ul',
+                className: 'flex-container',
+                children: [
+                  {
+                    tag: 'li',
+                    children: [
+                      {
+                        tag: 'a',
+                        href: '#',
+                        children: [
+                          {
+                            tag: 'img',
+                            src: './assets/vans-logo.png',
+                            alt: 'logo vans'
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            tag: 'div',
+            className: 'elements',
+            children: [
+              {
+                tag: 'ul',
+                className: 'flex-container',
+                children: [
+                  {
+                    tag: 'li',
+                    children: [
+                      {
+                        tag: 'a',
+                        href: '#',
+                        children: [
+                          {
+                            tag: 'img',
+                            src: './assets/lupa.png',
+                            alt: 'lupa imagen vectorial',
+                            title:
+                              'imagen de una lupa para buscar productos en la web'
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    tag: 'li',
+                    children: [
+                      {
+                        tag: 'a',
+                        href: '#',
+                        children: [
+                          {
+                            tag: 'img',
+                            src: './assets/shopping-cart.png',
+                            alt: 'carrito de compra',
+                            title: 'carrito de compra para añadir productos'
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    tag: 'li',
+                    children: [
+                      {
+                        tag: 'a',
+                        href: '#',
+                        children: [
+                          {
+                            tag: 'img',
+                            src: './assets/menu.png',
+                            alt: 'menu responsive',
+                            title: 'menu responsivo conocido como hamburguesa'
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+
+const printHeader = (menuButtons, parent) => {
+  for (const button of menuButtons) {
+    const element = document.createElement(button.tag)
+
+    if (button.className) {
+      element.className = button.className
+    }
+    if (button.id) {
+      element.id = button.id
+    }
+    if (button.text) {
+      element.textContent = button.text
+    }
+    if (button.href) {
+      element.setAttribute('href', button.href)
+    }
+    if (button.src) {
+      element.setAttribute('src', button.src)
+    }
+    if (button.alt) {
+      element.setAttribute('alt', button.alt)
+    }
+    if (button.title) {
+      element.setAttribute('title', button.title)
+    }
+    if (button.type) {
+      element.setAttribute('type', button.type)
+    }
+    if (button.name) {
+      element.setAttribute('name', button.name)
+    }
+    if (button.placeholder) {
+      element.setAttribute('placeholder', button.placeholder)
+    }
+    if (button.children) {
+      printHeader(button.children, element)
+    }
+
+    parent.appendChild(element)
+  }
+}
+
+const parentElement = document.createElement('nav')
+printHeader(menuButtons, parentElement)
+document.body.appendChild(parentElement)
+
+const footerElements = [
+  {
+    tag: 'footer',
+    children: [
+      {
+        tag: 'form',
+        action: '/action.php',
+        method: 'post',
+        name: 'register',
+        children: [
+          {
+            tag: 'div',
+            className: 'register column',
+            children: [
+              {
+                tag: 'h4',
+                text: '¡El que primero llega, se lo lleva!'
+              },
+              {
+                tag: 'p',
+                text: 'Suscríbete para enterarte antes que nadie de nuestras promociones exclusivas, últimos lanzamientos y colaboraciones únicas.'
+              },
+              {
+                tag: 'div',
+                className: 'send',
+                children: [
+                  {
+                    tag: 'input',
+                    className: 'newsletter',
+                    type: 'email',
+                    id: 'mail',
+                    placeholder: 'Dirección de email',
+                    required: true
+                  },
+                  {
+                    tag: 'button',
+                    text: '>'
+                  }
+                ]
+              },
+              {
+                tag: 'div',
+                className: 'conditions flex-container',
+                children: [
+                  {
+                    tag: 'label',
+                    htmlFor: 'terms',
+                    text: 'Al suscribirme confirmo que he leído la política de privacidad de Vans y doy mi consentimiento para el tratamiento de mis datos personales con fines de marketing y determinación de perfiles.'
+                  },
+                  {
+                    tag: 'input',
+                    type: 'checkbox',
+                    id: 'terms',
+                    required: true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+
+const printFooter = (footerSections, parent) => {
+  for (const section of footerSections) {
+    const element = document.createElement(section.tag)
+
+    if (section.className) {
+      element.className = section.className
+    }
+    if (section.id) {
+      element.id = section.id
+    }
+    if (section.text) {
+      element.textContent = section.text
+    }
+
+    if (section.children) {
+      printFooter(section.children, element)
+    }
+
+    if (section.tag === 'input') {
+      if (section.type) {
+        element.setAttribute('type', section.type)
+      }
+      if (section.name) {
+        element.setAttribute('name', section.name)
+      }
+      if (section.placeholder) {
+        element.setAttribute('placeholder', section.placeholder)
+      }
+      if (section.required) {
+        element.setAttribute('required', section.required)
+      }
+      if (section.id) {
+        element.setAttribute('id', section.id)
+      }
+    }
+    parent.appendChild(element)
+  }
+}
+
+const parentFooterElement = document.createElement('footer')
+printFooter(footerElements, parentFooterElement)
+document.body.appendChild(parentFooterElement)
+
 const titleh2 = document.createElement('h2')
 titleh2.textContent = 'Zapatillas Hombre'
 
