@@ -722,11 +722,21 @@ const filterSelect = (event) => {
 
   const isModel = sneakers.some((sneaker) => sneaker.className === filterModel)
   const isColor = sneakers.some((sneaker) => sneaker.color === filterColor)
+
   if (isModel) {
-    selectedModel = filterModel === selectedModel ? null : filterModel
+    if (filterModel === selectedModel) {
+      selectedModel = null
+    } else {
+      selectedModel = filterModel
+    }
   } else if (isColor) {
-    selectedColor = selectedColor === filterColor ? null : filterColor
+    if (selectedColor === filterColor) {
+      selectedColor = null
+    } else {
+      selectedColor = filterColor
+    }
   }
+
   const filteredSneakers = sneakers.filter((sneaker) => {
     const matchesModel = !selectedModel || sneaker.className === selectedModel
     const matchesColor = !selectedColor || sneaker.color === selectedColor
