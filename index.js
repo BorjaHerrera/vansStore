@@ -1,5 +1,3 @@
-const main = document.querySelector('main')
-
 const menuButtons = [
   {
     tag: 'header',
@@ -285,228 +283,61 @@ const menuButtons = [
       }
     ]
   }
-]
+];
+
+const nav = document.createElement('nav');
+document.body.appendChild(nav);
 
 const printHeader = (menuButtons, parent) => {
   for (const button of menuButtons) {
-    const element = document.createElement(button.tag)
+    const element = document.createElement(button.tag);
 
     if (button.className) {
-      element.className = button.className
+      element.className = button.className;
     }
     if (button.id) {
-      element.id = button.id
+      element.id = button.id;
     }
     if (button.text) {
-      element.textContent = button.text
+      element.textContent = button.text;
     }
     if (button.href) {
-      element.setAttribute('href', button.href)
+      element.setAttribute('href', button.href);
     }
     if (button.src) {
-      element.setAttribute('src', button.src)
+      element.setAttribute('src', button.src);
     }
     if (button.alt) {
-      element.setAttribute('alt', button.alt)
+      element.setAttribute('alt', button.alt);
     }
     if (button.title) {
-      element.setAttribute('title', button.title)
+      element.setAttribute('title', button.title);
     }
     if (button.type) {
-      element.setAttribute('type', button.type)
+      element.setAttribute('type', button.type);
     }
     if (button.name) {
-      element.setAttribute('name', button.name)
+      element.setAttribute('name', button.name);
     }
     if (button.placeholder) {
-      element.setAttribute('placeholder', button.placeholder)
+      element.setAttribute('placeholder', button.placeholder);
     }
     if (button.children) {
-      printHeader(button.children, element)
+      printHeader(button.children, element);
     }
 
-    parent.appendChild(element)
+    parent.appendChild(element);
   }
-}
+};
+printHeader(menuButtons, nav);
 
-const parentElement = document.createElement('nav')
-printHeader(menuButtons, parentElement)
-document.body.appendChild(parentElement)
+const titleh2 = document.createElement('h2');
+titleh2.textContent = 'Zapatillas Hombre';
+document.body.appendChild(titleh2);
 
-const footerElements = [
-  {
-    tag: 'footer',
-    children: [
-      {
-        tag: 'form',
-        action: '/action.php',
-        method: 'post',
-        name: 'register',
-        children: [
-          {
-            tag: 'div',
-            className: 'register column',
-            children: [
-              {
-                tag: 'h4',
-                text: '¡El que primero llega, se lo lleva!'
-              },
-              {
-                tag: 'p',
-                text: 'Suscríbete para enterarte antes que nadie de nuestras promociones exclusivas, últimos lanzamientos y colaboraciones únicas.'
-              },
-              {
-                tag: 'div',
-                className: 'send',
-                children: [
-                  {
-                    tag: 'input',
-                    className: 'newsletter',
-                    type: 'email',
-                    id: 'mail',
-                    placeholder: 'Dirección de email',
-                    required: true
-                  },
-                  {
-                    tag: 'button',
-                    text: '>'
-                  }
-                ]
-              },
-              {
-                tag: 'div',
-                className: 'conditions flex-container',
-                children: [
-                  {
-                    tag: 'label',
-                    htmlFor: 'terms',
-                    text: 'Al suscribirme confirmo que he leído la política de privacidad de Vans y doy mi consentimiento para el tratamiento de mis datos personales con fines de marketing y determinación de perfiles.'
-                  },
-                  {
-                    tag: 'input',
-                    type: 'checkbox',
-                    id: 'terms',
-                    required: true
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-]
-
-const printFooter = (footerSections, parent) => {
-  for (const section of footerSections) {
-    const element = document.createElement(section.tag)
-
-    if (section.className) {
-      element.className = section.className
-    }
-    if (section.id) {
-      element.id = section.id
-    }
-    if (section.text) {
-      element.textContent = section.text
-    }
-
-    if (section.children) {
-      printFooter(section.children, element)
-    }
-
-    if (section.tag === 'input') {
-      if (section.type) {
-        element.setAttribute('type', section.type)
-      }
-      if (section.name) {
-        element.setAttribute('name', section.name)
-      }
-      if (section.placeholder) {
-        element.setAttribute('placeholder', section.placeholder)
-      }
-      if (section.required) {
-        element.setAttribute('required', section.required)
-      }
-      if (section.id) {
-        element.setAttribute('id', section.id)
-      }
-    }
-    parent.appendChild(element)
-  }
-}
-
-const parentFooterElement = document.createElement('footer')
-printFooter(footerElements, parentFooterElement)
-document.body.appendChild(parentFooterElement)
-
-const titleh2 = document.createElement('h2')
-titleh2.textContent = 'Zapatillas Hombre'
-
-const filtersAside = [
-  {
-    tag: 'aside',
-    className: 'aside-container',
-    children: [
-      {
-        tag: 'div',
-        className: 'modelFilter',
-        children: [
-          {
-            tag: 'div',
-            className: 'tittle-filter',
-            children: [
-              { tag: 'h3', text: 'Modelos' },
-              { tag: 'button', className: 'pull-down', text: '+' }
-            ]
-          },
-          {
-            tag: 'div',
-            className: 'filters-container hidden aside-container',
-            children: [
-              { tag: 'button', text: 'Old Skool', className: 'oldskool' },
-              { tag: 'button', text: 'Slip-On', className: 'slipon' },
-              { tag: 'button', text: 'Authentic', className: 'authentic' },
-              { tag: 'button', text: 'Sk8-Hi', className: 'sk8hi' },
-              { tag: 'button', text: 'Ultrarange', className: 'ultrarange' },
-              { tag: 'button', text: 'Knu Skool', className: 'knuskool' }
-            ]
-          }
-        ]
-      },
-      {
-        tag: 'div',
-        className: 'colorFilter',
-        children: [
-          {
-            tag: 'div',
-            className: 'tittle-filter',
-            children: [
-              { tag: 'h3', text: 'Colores' },
-              { tag: 'button', className: 'pull-down', text: '+' }
-            ]
-          },
-          {
-            tag: 'div',
-            className: 'filters-container hidden aside-container',
-            children: [
-              { tag: 'button', text: 'Multicolor' },
-              { tag: 'button', text: 'Verde' },
-              { tag: 'button', text: 'Rojo' },
-              { tag: 'button', text: 'Azul' }
-            ]
-          }
-        ]
-      },
-      {
-        tag: 'button',
-        className: 'remove-filter aside-container',
-        text: 'Eliminar filtros'
-      }
-    ]
-  }
-]
+const sneakerContainer = document.createElement('section');
+sneakerContainer.id = 'sneaker-container';
+document.body.appendChild(sneakerContainer);
 
 const sneakers = [
   {
@@ -617,207 +448,346 @@ const sneakers = [
     price: 90.0,
     link: 'https://www.vans.es/shop/es/vans-es/zapatillas-knu-skool-vn0009qccib'
   }
-]
-
-const sneakerContainer = document.createElement('section')
-sneakerContainer.id = 'sneaker-container'
+];
 
 const printSneakers = (sneakersToPrint) => {
-  sneakerContainer.innerHTML = ''
+  sneakerContainer.innerHTML = ''; // Limpia el contenido del contenedor
 
-  sneakersToPrint.forEach((sneaker) => {
-    const sneakerArticle = document.createElement('article')
-    sneakerArticle.className = 'sneaker-article column'
-    sneakerArticle.dataset.filter = sneaker.className
+  for (const sneaker of sneakersToPrint) {
+    const sneakerArticle = document.createElement('article');
+    sneakerArticle.className = 'sneaker-article column';
 
-    const sneakerLink = document.createElement('a')
-    sneakerLink.href = sneaker.link
-    sneakerLink.target = '_blank'
+    const sneakerLink = document.createElement('a');
+    sneakerLink.href = sneaker.link;
+    sneakerLink.target = '_blank';
 
-    const sneakerImg = document.createElement('img')
-    sneakerImg.src = sneaker.image
-    sneakerImg.alt = sneaker.name
-    sneakerLink.appendChild(sneakerImg)
+    const sneakerImg = document.createElement('img');
+    sneakerImg.src = sneaker.image;
+    sneakerImg.alt = sneaker.name;
+    sneakerLink.appendChild(sneakerImg);
 
-    const sneakerName = document.createElement('h3')
-    sneakerName.textContent = sneaker.name
-    sneakerLink.appendChild(sneakerName)
+    const sneakerName = document.createElement('h3');
+    sneakerName.textContent = sneaker.name;
+    sneakerLink.appendChild(sneakerName);
 
-    sneakerArticle.appendChild(sneakerLink)
+    sneakerArticle.appendChild(sneakerLink);
 
-    const sneakerColor = document.createElement('p')
-    sneakerColor.textContent = `Color: ${sneaker.color}`
-    sneakerArticle.appendChild(sneakerColor)
+    const sneakerColor = document.createElement('p');
+    sneakerColor.textContent = `Color: ${sneaker.color}`;
+    sneakerArticle.appendChild(sneakerColor);
 
-    const sneakerPrice = document.createElement('p')
-    sneakerPrice.textContent = `€${sneaker.price.toFixed(2)}`
-    sneakerArticle.appendChild(sneakerPrice)
+    const sneakerPrice = document.createElement('p');
+    sneakerPrice.textContent = `€${sneaker.price.toFixed(2)}`;
+    sneakerArticle.appendChild(sneakerPrice);
 
-    sneakerContainer.appendChild(sneakerArticle)
-  })
-}
+    sneakerContainer.appendChild(sneakerArticle); // Añade el artículo al contenedor
+  }
+};
 
-printSneakers(sneakers)
+printSneakers(sneakers);
+
+const filtersAside = [
+  {
+    tag: 'aside',
+    className: 'aside-container',
+    children: [
+      {
+        tag: 'div',
+        className: 'modelFilter',
+        children: [
+          {
+            tag: 'div',
+            className: 'tittle-filter',
+            children: [
+              { tag: 'h3', text: 'Modelos' },
+              { tag: 'button', className: 'pull-down', text: '+' }
+            ]
+          },
+          {
+            tag: 'div',
+            className: 'filters-container hidden aside-container',
+            children: [
+              { tag: 'button', text: 'Old Skool', className: 'oldskool' },
+              { tag: 'button', text: 'Slip-On', className: 'slipon' },
+              { tag: 'button', text: 'Authentic', className: 'authentic' },
+              { tag: 'button', text: 'Sk8-Hi', className: 'sk8hi' },
+              { tag: 'button', text: 'Ultrarange', className: 'ultrarange' },
+              { tag: 'button', text: 'Knu Skool', className: 'knuskool' }
+            ]
+          }
+        ]
+      },
+      {
+        tag: 'div',
+        className: 'colorFilter',
+        children: [
+          {
+            tag: 'div',
+            className: 'tittle-filter',
+            children: [
+              { tag: 'h3', text: 'Colores' },
+              { tag: 'button', className: 'pull-down', text: '+' }
+            ]
+          },
+          {
+            tag: 'div',
+            className: 'filters-container hidden aside-container',
+            children: [
+              { tag: 'button', text: 'Multicolor' },
+              { tag: 'button', text: 'Verde' },
+              { tag: 'button', text: 'Rojo' },
+              { tag: 'button', text: 'Azul' }
+            ]
+          }
+        ]
+      },
+      {
+        tag: 'button',
+        className: 'remove-filter aside-container',
+        text: 'Eliminar filtros'
+      }
+    ]
+  }
+];
+
+const aside = document.createElement('aside');
+aside.id = 'aside';
+document.body.appendChild(aside);
 
 const printFilters = (filters, parent) => {
   for (const filter of filters) {
-    const filterElement = document.createElement(filter.tag)
+    const filterElement = document.createElement(filter.tag);
 
     if (filter.className) {
-      filterElement.className = filter.className
+      filterElement.className = filter.className;
     }
 
     if (filter.text) {
-      filterElement.textContent = filter.text
+      filterElement.textContent = filter.text;
     }
 
     if (filter.children) {
-      printFilters(filter.children, filterElement)
+      printFilters(filter.children, filterElement);
     }
-    parent.appendChild(filterElement)
+    parent.appendChild(filterElement);
   }
-}
+};
 
-const aside = document.createElement('aside')
-aside.id = 'aside'
-printFilters(filtersAside, aside)
-
-// Crear una contenedor para agrupar todo el contenido nuevo
-const container = document.createElement('div')
-container.appendChild(titleh2)
-container.appendChild(sneakerContainer)
-container.appendChild(aside)
-
-// Insertar el contenedor después del main
-main.parentNode.insertBefore(container, main.nextSibling)
+printFilters(filtersAside, aside);
 
 const pullDownClick = (event) => {
-  const button = event.target
-  const filtersContainer = button.parentElement.nextElementSibling
+  const button = event.target;
+  const filter = button.parentElement.nextElementSibling;
 
   if (button.textContent === '+') {
-    filtersContainer.classList.remove('hidden')
-    button.textContent = '-'
+    filter.classList.remove('hidden');
+    button.textContent = '-';
   } else {
-    filtersContainer.classList.add('hidden')
-    button.textContent = '+'
+    filter.classList.add('hidden');
+    button.textContent = '+';
   }
-}
+};
 
 const filterDropDownEvent = () => {
-  const pullDownButton = document.querySelectorAll('.pull-down')
-  pullDownButton.forEach((button) => {
-    button.addEventListener('click', pullDownClick)
-  })
-}
-filterDropDownEvent()
+  const pullDownButton = document.querySelectorAll('.pull-down');
+  for (const button of pullDownButton) {
+    button.addEventListener('click', pullDownClick);
+  }
+};
 
-let selectedModel = null
-let selectedColor = null
+filterDropDownEvent();
+
+let selectedModel = null;
+let selectedColor = null;
 
 const filterSelect = (event) => {
-  const selectButton = event.target
-  const filterModel = selectButton.className
-  const filterColor = selectButton.textContent
+  const button = event.target;
+  const filterModel = button.className.trim();
+  const filterColor = button.textContent.trim();
 
-  const isModel = sneakers.some((sneaker) => sneaker.className === filterModel)
-  const isColor = sneakers.some((sneaker) => sneaker.color === filterColor)
+  const isModel = sneakers.some((sneaker) => sneaker.className === filterModel);
+  const isColor = sneakers.some((sneaker) => sneaker.color === filterColor);
 
   if (isModel) {
     if (filterModel === selectedModel) {
-      selectedModel = null
+      selectedModel = null;
     } else {
-      selectedModel = filterModel
+      selectedModel = filterModel;
     }
-  } else if (isColor) {
-    if (selectedColor === filterColor) {
-      selectedColor = null
+  }
+
+  if (isColor) {
+    if (filterColor === selectedColor) {
+      selectedColor = null;
     } else {
-      selectedColor = filterColor
+      selectedColor = filterColor;
     }
   }
 
   const filteredSneakers = sneakers.filter((sneaker) => {
-    const matchesModel = !selectedModel || sneaker.className === selectedModel
-    const matchesColor = !selectedColor || sneaker.color === selectedColor
-    return matchesModel && matchesColor
-  })
+    const matchesModel = !selectedModel || sneaker.className === selectedModel;
+    const matchesColor = !selectedColor || sneaker.color === selectedColor;
+    return matchesModel && matchesColor;
+  });
 
-  if (filteredSneakers.length === 0) {
-    showRandomSneakers()
+  if (!filteredSneakers.length) {
+    const randomSneakersText = document.createElement('p');
+    randomSneakersText.textContent =
+      '¡Ups! Parece que no tenemos lo que buscas, pero estos productos podrían ser justo lo que necesitas.';
+    randomSneakersText.className = 'notfound-message';
+
+    sneakerContainer.innerHTML = '';
+
+    sneakerContainer.appendChild(randomSneakersText);
+
+    printSneakers(getRandomSneakers());
+
+    sneakerContainer.insertBefore(
+      randomSneakersText,
+      sneakerContainer.firstChild
+    );
   } else {
-    printSneakers(filteredSneakers)
+    printSneakers(filteredSneakers);
   }
-}
-
-const resetFilters = () => {
-  selectedModel = null
-  selectedColor = null
-  printSneakers(sneakers)
-}
+};
 
 const addEventListenersSneakers = () => {
-  const filterButtons = document.querySelectorAll('.filters-container button')
-  filterButtons.forEach((button) => {
-    button.addEventListener('click', filterSelect)
-  })
-}
-addEventListenersSneakers()
+  const filterButtons = document.querySelectorAll('.filters-container button');
 
-const removeFiltersButton = document.querySelector('.remove-filter')
-removeFiltersButton.addEventListener('click', resetFilters)
+  for (const button of filterButtons) {
+    button.addEventListener('click', filterSelect);
+  }
+};
+addEventListenersSneakers();
 
-const getRandomSneakers = (max) => {
-  return Math.floor(Math.random() * 6)
-}
+const resetFilters = () => {
+  selectedModel = null;
+  selectedColor = null;
+  printSneakers(sneakers);
+};
+const removeFilterButton = () => {
+  const removeButton = document.querySelector('.remove-filter');
+  removeButton.addEventListener('click', resetFilters);
+};
+removeFilterButton();
 
-const showRandomSneakers = () => {
-  const randomSneakers = []
-  const numberOfSneakers = sneakers.length
+const getRandomSneakers = () => {
+  const randomSneakersArray = [];
 
-  while (randomSneakers.length < 6) {
-    const randomIndex = getRandomSneakers(numberOfSneakers)
-    if (!randomSneakers.includes(randomIndex)) {
-      randomSneakers.push(randomIndex)
+  while (randomSneakersArray.length < 6) {
+    const randomIndex = Math.floor(Math.random() * sneakers.length);
+    const randomSneaker = sneakers[randomIndex];
+    if (!randomSneakersArray.includes(randomSneaker)) {
+      randomSneakersArray.push(randomSneaker);
     }
   }
-  const randomSneakersText = document.createElement('p')
-  randomSneakersText.textContent =
-    '¡Ups! Parece que no tenemos lo que buscas, pero estos productos podrían ser justo lo que necesitas.'
-  randomSneakersText.className = 'notfound-message'
-  sneakerContainer.innerHTML = ''
+  return randomSneakersArray;
+};
 
-  sneakerContainer.appendChild(randomSneakersText)
-
-  for (const i of randomSneakers) {
-    const sneaker = sneakers[i]
-    const sneakerArticle = document.createElement('article')
-    sneakerArticle.className = 'sneaker-article column'
-    sneakerArticle.dataset.filter = sneaker.className
-
-    const sneakerLink = document.createElement('a')
-    sneakerLink.href = sneaker.link
-    sneakerLink.target = '_blank'
-
-    const sneakerImg = document.createElement('img')
-    sneakerImg.src = sneaker.image
-    sneakerImg.alt = sneaker.name
-    sneakerLink.appendChild(sneakerImg)
-
-    const sneakerName = document.createElement('h3')
-    sneakerName.textContent = sneaker.name
-    sneakerLink.appendChild(sneakerName)
-
-    sneakerArticle.appendChild(sneakerLink)
-
-    const sneakerColor = document.createElement('p')
-    sneakerColor.textContent = `Color: ${sneaker.color}`
-    sneakerArticle.appendChild(sneakerColor)
-
-    const sneakerPrice = document.createElement('p')
-    sneakerPrice.textContent = `€${sneaker.price.toFixed(2)}`
-    sneakerArticle.appendChild(sneakerPrice)
-
-    sneakerContainer.appendChild(sneakerArticle)
+const footerElements = [
+  {
+    tag: 'footer',
+    children: [
+      {
+        tag: 'form',
+        action: '/action.php',
+        method: 'post',
+        name: 'register',
+        children: [
+          {
+            tag: 'div',
+            className: 'register column',
+            children: [
+              {
+                tag: 'h4',
+                text: '¡El que primero llega, se lo lleva!'
+              },
+              {
+                tag: 'p',
+                text: 'Suscríbete para enterarte antes que nadie de nuestras promociones exclusivas, últimos lanzamientos y colaboraciones únicas.'
+              },
+              {
+                tag: 'div',
+                className: 'send',
+                children: [
+                  {
+                    tag: 'input',
+                    className: 'newsletter',
+                    type: 'email',
+                    id: 'mail',
+                    placeholder: 'Dirección de email',
+                    required: true
+                  },
+                  {
+                    tag: 'button',
+                    text: '>'
+                  }
+                ]
+              },
+              {
+                tag: 'div',
+                className: 'conditions flex-container',
+                children: [
+                  {
+                    tag: 'label',
+                    htmlFor: 'terms',
+                    text: 'Al suscribirme confirmo que he leído la política de privacidad de Vans y doy mi consentimiento para el tratamiento de mis datos personales con fines de marketing y determinación de perfiles.'
+                  },
+                  {
+                    tag: 'input',
+                    type: 'checkbox',
+                    id: 'terms',
+                    required: true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
-}
+];
+
+const printFooter = (footerSections, parent) => {
+  for (const section of footerSections) {
+    const element = document.createElement(section.tag);
+
+    if (section.className) {
+      element.className = section.className;
+    }
+    if (section.id) {
+      element.id = section.id;
+    }
+    if (section.text) {
+      element.textContent = section.text;
+    }
+
+    if (section.children) {
+      printFooter(section.children, element);
+    }
+
+    if (section.tag === 'input') {
+      if (section.type) {
+        element.setAttribute('type', section.type);
+      }
+      if (section.name) {
+        element.setAttribute('name', section.name);
+      }
+      if (section.placeholder) {
+        element.setAttribute('placeholder', section.placeholder);
+      }
+      if (section.required) {
+        element.setAttribute('required', section.required);
+      }
+      if (section.id) {
+        element.setAttribute('id', section.id);
+      }
+    }
+    parent.appendChild(element);
+  }
+};
+
+const parentFooterElement = document.createElement('footer');
+printFooter(footerElements, parentFooterElement);
+document.body.appendChild(parentFooterElement);
